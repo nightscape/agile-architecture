@@ -1,0 +1,163 @@
+/* add your css style rules here */
+
+
+a {
+  color: #41a9ff;
+  text-decoration: underline;
+}
+
+body {
+  background-image: -webkit-linear-gradient(top left, black, white);
+  background-image:    -moz-linear-gradient(top left, black, white);
+  background-image:     -ms-linear-gradient(top left, black, white);
+  background-image:      -o-linear-gradient(top left, black, white);
+  background-image:         linear-gradient(top left, black, white);
+}
+
+.impress-enabled .step {
+  width: 900px;
+  height: 600px;
+  padding: 40px 60px;
+  font-size: 30px;
+  text-shadow: 5px 5px 12px rgba(0,0,0,0.2);
+
+  margin: 10;
+  opacity: 0.1;
+  border-style:solid;
+  border-color:red;
+  border-radius: 60px;
+  -webkit-transition: opacity 2s;
+  -moz-transition:    opacity 2s;
+  -ms-transition:     opacity 2s;
+  -o-transition:      opacity 2s;
+  transition:         opacity 2s;
+}
+.impress-enabled .step.autoheight {
+  height: inherit;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+.impress-enabled .step.future.appears { opacity: 0 }
+.impress-enabled .step.past.appears { opacity: 1 }
+
+
+.slide h2 {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: 48px;
+  text-align: center;
+  text-shadow: 10px 10px 24px rgba(0,0,0,0.5);
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.slide {
+  background: white;
+}
+
+.slide.manifesto {
+  background-image: url(https://agilemanifesto.org/background.jpg);
+}
+
+.step.slide.hidden {
+  opacity: 0.0;
+}
+
+.step.slide.transparent.future {
+  opacity: 0.0;
+}
+
+.step.slide.transparent.past {
+  opacity: 0.0;
+}
+
+.step.slide.omnipresent {
+  opacity: 1.0;
+}
+
+.slide p,
+.slide li {
+  font-weight: bold;
+  letter-spacing: -.03em;
+}
+  
+.slide > ul {
+  list-style:none;  
+}
+
+.slide ol {
+  margin-left:2em;  
+}
+  
+.slide > ul ul {
+  margin-left:2em;  
+  list-style: none;
+}
+
+.slide li li {
+  font-size:80%;
+}
+  
+.slide li {
+  margin:1.0em 0;
+}
+
+.slide > ul > li:before {
+  content:'\2714';
+  color: #a0c12c;
+  padding-right: .5em;
+}
+
+.slide.pros > ul > li:before {
+  content:'\2295';
+  color: #a0c12c;
+  padding-right: .5em;
+}
+.slide.cons > ul > li:before {
+  content:'\2296';
+  color: red;
+  padding-right: .5em;
+}
+
+.slide li li:before {
+  content: '\279C';
+  color: #41a9ff;
+  padding-right: .2em;
+}
+
+code {
+  font-family: 'Courier new', Courier, sans-serif;
+}
+
+div.CodeRay table.CodeRay {
+  font-size: 22px;
+}
+
+blockquote {
+  font: 24px/30px italic Times, serif;
+  padding: 8px;
+  background-color: #faebbc;
+  border-top: 1px solid #e1cc89;
+  border-bottom: 1px solid #e1cc89;
+  margin: 5px;
+  background-image: url(img/openquote1.gif);
+  background-position: top left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+  }
+  blockquote p {
+      display: block;
+      background-image: url(img/closequote1.gif);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+    }
+
+td {
+  vertical-align: top;
+  padding: 4px;
+}
+
+
+

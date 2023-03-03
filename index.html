@@ -1,0 +1,556 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Agile Architecture | by Martin Mauch</title>
+    
+    <meta name="generator" content="Slide Show (S9) v4.1.0 on Ruby 3.0.1 (2021-04-05) [arm64-darwin20]">
+    <meta name="author"    content="Martin Mauch">
+    
+    <!-- Custom CSS just for this page -->
+    <link rel="stylesheet" href="index.css">
+    
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" >
+</head>
+
+<body class="impress-not-supported">
+
+<div id="impress">
+
+<!-- note: assumes no header (breaking slides w/ SLIDE directive) -->
+     
+    <div class='step slide omnipresent' data-x='0' data-y='0' data-scale='5' data-z='2000' >
+      
+<!-- _S9SLIDE_  slide omnipresent x=0 y=0 scale=5 z=2000 -->
+
+<div id="myinnercontainer" style="position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;">
+  <h2>Agile<img src="img/scrum.svg" width="60" height="60" />&nbsp;
+  <span style="display:inline-block;vertical-align:middle">
+  <img src="img/arrow_curved_blue.svg" width="210" height="105" /><br />
+  <img src="img/arrow_curved_blue.svg" width="210" height="105" style="-webkit-transform:rotate(180deg);transform:rotate(180deg);" />
+  </span>&nbsp;
+  <img src="img/architecture.svg" width="60" height="60" />&nbsp;Architecture
+  </h2>
+</div>
+
+
+    </div>
+     
+    <div class='step slide manifesto' data-x='-2280' data-y='200' >
+      <!-- _S9SLIDE_  slide manifesto x=-2280 y=200 -->
+
+<h1 id="agile-manifesto-principles">Agile Manifesto Principles</h1>
+<ul>
+  <li>Build projects around motivated, self-organizing and self-optimizing teams</li>
+  <li>Communicate frequently, across domains, preferrably face-to-face</li>
+  <li>Create a sustainable development environment</li>
+  <li>Maximize the amount of work not done</li>
+  <li>Continuously attend to technical excellence and good design</li>
+  <li>Continuously deliver value-creating software frequently</li>
+  <li>Welcome changing requirements</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide manifesto' data-x='-1180' data-y='200' >
+      <!-- _S9SLIDE_  slide manifesto x=-1180 y=200 -->
+
+<h1 id="agile-core-focus">Agile Core Focus</h1>
+<ul>
+  <li>People</li>
+  <li>Feedback</li>
+  <li>Adaptability</li>
+  <li>Sustainability</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide pros' data-x='-1180' data-y='-500' >
+      <!-- _S9SLIDE_  slide pros x=-1180 y=-500 -->
+
+<h1 id="agile-pros">Agile pros</h1>
+<ul>
+  <li>Delivers value faster</li>
+  <li>Cross-functional brings diverse perspectives</li>
+  <li>People feel empowered</li>
+  <li>Continuous and fast learning</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide cons' data-x='-1180' data-y='900' >
+      <!-- _S9SLIDE_  slide cons x=-1180 y=900 -->
+
+<h1 id="agile-cons">Agile cons</h1>
+<ul>
+  <li>Does not tackle change processes</li>
+  <li>Seemingly simple, but requires experience to get it right</li>
+  <li>Only short-term predictability</li>
+  <li>Originally only small scale
+<!--
+makes the implicit assumption that the incremental rollout of features leads to incremental adaptation of the users.
+--></li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide hidden' data-x='0' data-y='0' data-scale='5' data-z='1000' >
+      <!-- _S9SLIDE_  slide hidden x=0 y=0 scale=5 z=1000 -->
+
+
+    </div>
+     
+    <div class='step slide' data-x='1180' data-y='200' >
+      <!-- _S9SLIDE_  slide x=1180 y=200 -->
+
+<h1 id="architecture---definition">Architecture - Definition</h1>
+<blockquote>
+  <p>The fundamental concepts or properties of a system in its environment embodied in its elements, relationships, and in the principles of its design and evolution<br />
+(ISO/IEC/IEEE 42010:2011)</p>
+</blockquote>
+
+<blockquote>
+  <p>The structure of components, their interrelationships, and the principles and guidelines governing their design and evolution over time<br />
+(TOGAF Standard 2018)</p>
+</blockquote>
+
+<blockquote>
+  <p>The important stuff (whatever that is)<br />
+(Martin Fowler)</p>
+</blockquote>
+
+<!--
+In the following, "Architecture" always refers to "Architecture Modeling".
+-->
+
+
+    </div>
+     
+    <div class='step slide' data-x='2280' data-y='200' >
+      <!-- _S9SLIDE_  slide x=2280 y=200 -->
+
+<h1 id="architecture-focus">Architecture Focus</h1>
+<ul>
+  <li>Predictability</li>
+  <li>Wholistic Optimization</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide pros' data-x='1180' data-y='-500' >
+      <!-- _S9SLIDE_  slide pros x=1180 y=-500 -->
+
+<h1 id="architecture-pros">Architecture pros</h1>
+<ul>
+  <li>There’s always an architecture, modeling makes it explicit</li>
+  <li>Most valuable documentation if done well</li>
+  <li>Allows reasoning in broader scopes</li>
+  <li>Allows long-term predictions/reasoning/planning</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide cons' data-x='1180' data-y='900' >
+      <!-- _S9SLIDE_  slide cons x=1180 y=900 -->
+
+<h1 id="architecture-cons">Architecture cons</h1>
+<ul>
+  <li>In terms of Lean, architecture is actually “waste”</li>
+  <li>Unhelpful or even damaging if not updated</li>
+  <li>“Ivory tower” architecture often far from reality</li>
+  <li>Often found in rigid company structures and misused to control people</li>
+</ul>
+
+<!--
+
+-->
+
+
+    </div>
+     
+    <div class='step slide appears' data-x='0' data-y='0' data-scale='5' data-z='2001' >
+      <!-- _S9SLIDE_  slide appears x=0 y=0 scale=5 z=2001 -->
+
+<div id="myinnercontainer" style="position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;">
+  <div class="agile-architecture">
+    <h2 style="position:absolute;top:-20px;left:38%">Agile</h2>
+    <img src="img/agile-architecture.svg" width="60" height="60" style="position:absolute;top:80px;left:40%" />&nbsp;
+    <h2 style="position:absolute;top:105px;left:32%">Architecture</h2>
+  </div>
+  <h2>Agile<img src="img/scrum.svg" width="60" height="60" />&nbsp;
+  <span style="display:inline-block;vertical-align:middle">
+  <img src="img/sparkle-hearts.gif" width="210" height="210" /><br />
+  </span>&nbsp;
+  <img src="img/architecture.svg" width="60" height="60" />&nbsp;Architecture
+  </h2>
+</div>
+
+
+    </div>
+     
+    <div class='step slide' data-x='0' data-y='200' >
+      <!-- _S9SLIDE_  slide x=0 y=200 -->
+
+<h1 id="agile-architecture">Agile Architecture</h1>
+<ul>
+  <li>Combination of intentional and emergent architecture</li>
+  <li>Borrows concepts from many successful approaches (Intentional Architecture, Agile, Lean, Value Engineering)</li>
+  <li>Huge emphasis on the organization as a Complex Adaptive System</li>
+</ul>
+
+<!--
+Aims at benefiting from emergence while minimizing unnecessary complexity and undesirable outcomes.
+VE = analyzing the function of systems, equipment, facilities, services, and supplies for the purpose of achieving their essential functions at the lowest lifecycle cost consistent with required performance, reliability, quality, and safety
+CAS = Is characterized by intricate hierarchical arrangements of boundaries and signals
+-->
+
+
+    </div>
+     
+    <div class='step slide transparent autoheight' data-x='0' data-y='-1800' data-z='-1000' >
+      <!-- _S9SLIDE_  slide transparent autoheight x=0 y=-1800 z=-1000 -->
+
+<h1 id="agile-architecture-axioms-1">Agile Architecture Axioms 1</h1>
+
+<!---
+ * guidelines or restrictions that Agile architects are recommended to follow
+-->
+<ul>
+  <li>Customer experience
+    <ul>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_1_customer_experience_focus" target="_blank">Axiom 1. Customer Experience Focus</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_2_outside_in_thinking" target="_blank">Axiom 2. Outside-In Thinking</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_4_touchpoint_orchestration" target="_blank">Axiom 4. Touchpoint Orchestration</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!---
+
+
+
+
+
+
+
+-->
+<ul>
+  <li>Organization structure
+    <ul>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_5_value_stream_alignment" target="_blank">Axiom 5. Value Stream Alignment</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_6_autonomous_cross_functional_teams" target="_blank">Axiom 6. Autonomous Cross-Functional Teams</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_7_authority_responsibility_and_accountability_distribution" target="_blank">Axiom 7. Authority, Responsibility, and Accountability Distribution</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_11_partitioning_over_layering" target="_blank">Axiom 11. Partitioning Over Layering</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#inverse-conway" target="_blank">Axiom 12. Organization Mirroring Architecture</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_13_organizational_leveling" target="_blank">Axiom 13. Organizational Leveling</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_15_project_to_product_shift" target="_blank">Axiom 15. Project to Product Shift</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!---
+Insight: Business agility is facilitated by organizational agility
+
+   * Empower decentralized decision-making
+   * Enterprise Architects must develop their management consulting skills to include relationship building, problem solving, coaching, and negotiation as well as specialty skills, such as product management, design thinking, and Lean management
+   * "Culture eats strategy for breakfast."
+   * share a common purpose and vision
+   * Execution should be driven by leaders who know the field
+     * rarely the case when only driven by top executives
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   * Software architecture, product architecture, and operations architecture must be developed in a concurrent manner.
+   * Underlying the micro-service approach
+
+
+
+
+
+
+
+
+
+   * Event Storming helps Agile teams to explore the domain.
+     * facilitates a structured conversation
+-->
+
+
+    </div>
+     
+    <div class='step slide transparent' data-x='0' data-y='-900' data-z='-1000' >
+      <!-- _S9SLIDE_  slide transparent x=0 y=-900 z=-1000 -->
+
+<h1 id="agile-architecture-axioms-2">Agile Architecture Axioms 2</h1>
+<ul>
+  <li>Software structure
+    <ul>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_8_loosely_coupled_systems" target="_blank">Axiom 8. Loosely-Coupled Systems</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_9_modular_data_platform" target="_blank">Axiom 9. Modular Data Platform</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_10_simple_common_operating_principles" target="_blank">Axiom 10. Simple Common Operating Principles</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_16_secure_by_design" target="_blank">Axiom 16. Secure by Design</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!---
+
+
+
+
+
+
+
+
+
+-->
+
+<ul>
+  <li>Agility
+    <ul>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_3_rapid_feedback_loops" target="_blank">Axiom 3. Rapid Feedback Loops</a></li>
+      <li><a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_14_bias_for_change" target="_blank">Axiom 14. Bias for Change</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!---
+   * act faster
+   * experimenting with responses to weak signals
+   * the assumptions underlying your business model are embedded in all your processes
+   * recommends challenging these assumptions when formulating strategy
+   * Fast feedback cycles are a core ingredient of agile practices.
+   * Past performance is over-valued at the expense of experimentation and agility
+   * "No plan survives first contact with the enemy."
+   * Experience Design combines customer research and product discovery
+     * alternates between divergent and convergent thinking
+   * Agile emphasizes emergence with fast feedback cycles.
+
+
+
+
+
+
+
+   * Architecting for a built-in responsiveness to change
+-->
+
+
+    </div>
+     
+    <div class='step slide transparent' data-x='0' data-y='900' data-z='-1000' >
+      <!-- _S9SLIDE_  slide transparent x=0 y=900 z=-1000 -->
+
+<h1 id="agile-architecture-tools">Agile Architecture Tools</h1>
+<ul>
+  <li>Inverse Conway Maneuver</li>
+  <li>Set-Based Concurrent Engineering</li>
+  <li>Minimum Security Architecture</li>
+  <li>Architectural Decision Records</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide transparent' data-x='-1800' data-y='1800' data-z='-1000' >
+      <!-- _S9SLIDE_  slide transparent x=-1800 y=1800 z=-1000 -->
+
+<h1 id="inverse-conway-maneuver">Inverse Conway Maneuver</h1>
+<ul>
+  <li>Do value-stream mapping first</li>
+  <li>Segment teams along individual value streams</li>
+  <li>Give teams authority, responsibility and accountability</li>
+  <li>Allows each part of the system to evolve as autonomously as possible</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide transparent' data-x='-600' data-y='1800' data-z='-1000' >
+      <!-- _S9SLIDE_  slide transparent x=-600 y=1800 z=-1000 -->
+
+<h1 id="set-based-concurrent-engineering">Set-Based Concurrent Engineering</h1>
+<ul>
+  <li>Simultaneously explore multiple solutions for every sub-system</li>
+  <li>Use rapid, low-cost analysis and tests</li>
+  <li>Eliminate weak solutions</li>
+  <li>Converge on a solution</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide transparent' data-x='600' data-y='1800' data-z='-1000' >
+      <!-- _S9SLIDE_  slide transparent x=600 y=1800 z=-1000 -->
+
+<h1 id="minimum-security-architecture">Minimum Security Architecture</h1>
+<ul>
+  <li>Start building and evolve your security architecture with the software</li>
+  <li>Integrate with and stay in sync with DevOps</li>
+  <li>Roll out changes to all teams and products</li>
+  <li>Guide developers toward a secure Minimum Viable Product and set architectural direction</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide transparent' data-x='1800' data-y='1800' data-z='-1000' >
+      <!-- _S9SLIDE_  slide transparent x=1800 y=1800 z=-1000 -->
+
+<h1 id="architectural-decision-records">Architectural Decision Records</h1>
+<ul>
+  <li>Decide if something is a <a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#architecture-decisions">architecturally significant decision</a></li>
+  <li>Document significant decisions in a <a href="https://pubs.opengroup.org/architecture/o-aa-standard-single/#_architecture_decision_record">standardized format</a></li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide transparent' data-x='1800' data-y='1800' data-z='-2000' >
+      <!-- _S9SLIDE_  slide transparent x=1800 y=1800 z=-2000 -->
+
+<h1 id="adr-title">ADR Title</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">What</th>
+      <th style="text-align: left">Question</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Status</td>
+      <td style="text-align: left">What is the status: proposed, accepted, rejected, deprecated, superseded, etc.?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Context</td>
+      <td style="text-align: left">What is the issue that is motivating this decision or change?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Decision</td>
+      <td style="text-align: left">What is the change that is being proposed and/or being executed?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Decision scope</td>
+      <td style="text-align: left">Which segments of the enterprise and its software systems are impacted?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Decision type</td>
+      <td style="text-align: left">Is the decision easily reversible or not, and why?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Consequences</td>
+      <td style="text-align: left">What becomes easier or more difficult to do because of this change?</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--
+When _someone does not understand_ the rationale of a decision the choice must be made to either
+ * accept it, though it should be changed because the context has changed, or
+ * change it without understanding the consequences.
+
+Changes
+ * The way the enterprise is segmented
+ * The allocation of functions or activities to segments
+ * The structural interfaces that link segments
+ * The standards or guardrails that facilitate interoperability and composability
+-->
+
+<!--
+
+# Agile Architecture Best Practices
+   * Agile architecting recommends
+  	 * Modularity
+  	 * Standardization
+   * Agile architecting
+   * Some up-front Intentional Architecture prevents waste and accelerates decision-making
+   * Driving architecture from requirements is a mistake
+   * sometimes this is the only realistic option
+   * focus on the essence of the system without being unduly influenced by the functionality it provides
+   * architect a system in such a way that will allow change without damaging any non-functional qualities
+-->
+
+
+    </div>
+     
+    <div class='step slide pros' data-x='0' data-y='-500' >
+      <!-- _S9SLIDE_  slide pros x=0 y=-500 -->
+
+<h1 id="agile-architecture-pros">Agile Architecture pros</h1>
+<ul>
+  <li>Focus on organization structure makes desired effects come about naturally</li>
+  <li>Combination of best methods from other frameworks</li>
+  <li>Proper authority/accountability cut empowers and motivates people</li>
+  <li>Allows shifting between long-term planning and short-term work</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide cons' data-x='0' data-y='900' >
+      <!-- _S9SLIDE_  slide cons x=0 y=900 -->
+
+<h1 id="agile-architecture-cons">Agile Architecture cons</h1>
+<ul>
+  <li>Time will tell</li>
+</ul>
+
+
+    </div>
+     
+    <div class='step slide hidden' data-x='0' data-y='0' data-scale='5' data-z='1000' >
+      <!-- _S9SLIDE_  slide hidden x=0 y=0 scale=5 z=1000 -->
+
+
+    </div>
+
+
+
+</div>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>

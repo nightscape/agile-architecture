@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1024"/>
+<title>Agile ⇄ Architecture</title>
+<style>html,body{margin:0}</style>
+</head>
+<body>
+<div class="fallback">
+  <h2>impress.js needs a modern browser</h2>
+  <p>Open this file in a recent Chrome/Firefox/Safari (needs internet for the CDN libraries).</p>
+</div>
+
+<!-- data-width/height define the frame impress fits each active step into; the
+     aim/offset math below is expressed in these canvas units (1 unit = 1 css px). -->
+<div id="impress" data-transition-duration="900" data-width="900" data-height="600"
+     data-min-scale="0.05" data-max-scale="6">
+
+  <!-- ========================================================================
+       POSITIONING MODEL
+       A few steps are ABSOLUTE (data-x/data-y/data-scale) and act as anchors.
+       Everything else uses  data-aim="<id>"  + data-offset-x/-y  to sit at
+       (anchor centre + offset).  aim chains resolve recursively, so a satellite
+       can hang off another satellite. Moving an anchor moves its whole cluster.
+       ===================================================================== -->
+
+  <!-- ABSOLUTE anchor: intro title, zoomed all the way out; always visible -->
+  <div id="intro" class="step slide omnipresent" data-x="0" data-y="0" data-scale="5" data-z="2000">
+    <div style="position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;">
+      <h2>Agile<img src="img/scrum.svg" width="60" height="60"/>&nbsp;
+      <span style="display:inline-block;vertical-align:middle">
+      <img src="img/arrow_curved_blue.svg" width="210" height="105"/><br/>
+      <img src="img/arrow_curved_blue.svg" width="210" height="105" style="transform:rotate(180deg)"/>
+      </span>&nbsp;
+      <img src="img/architecture.svg" width="60" height="60"/>&nbsp;Architecture
+      </h2>
+    </div>
+  </div>
+
+  <!-- ================= AGILE cluster (left) ================= -->
+  <!-- satellite: to the left of the cluster anchor -->
+  <div class="step slide manifesto md dense" data-aim="agile-core" data-offset-x="-1100">
+
+# Agile Manifesto Principles
+- Build projects around motivated, self-organizing and self-optimizing teams
+- Communicate frequently, across domains, preferrably face-to-face
+- Create a sustainable development environment
+- Maximize the amount of work not done
+- Continuously attend to technical excellence and good design
+- Continuously deliver value-creating software frequently
+- Welcome changing requirements
+  </div>
+
+  <!-- ABSOLUTE anchor for the AGILE cluster -->
+  <div id="agile-core" class="step slide manifesto md" data-x="-1180" data-y="200">
+
+# Agile Core Focus
+- People
+- Feedback
+- Adaptability
+- Sustainability
+  </div>
+
+  <div class="step slide pros md" data-aim="agile-core" data-offset-y="-700">
+
+# Agile pros
+- Delivers value faster
+- Cross-functional brings diverse perspectives
+- People feel empowered
+- Continuous and fast learning
+  </div>
+
+  <div class="step slide cons md" data-aim="agile-core" data-offset-y="700">
+
+# Agile cons
+- Does not tackle change processes
+- Seemingly simple, but requires experience to get it right
+- Only short-term predictability
+- Originally only small scale
+  </div>
+
+  <!-- ================= ARCHITECTURE cluster (right) ================= -->
+  <!-- ABSOLUTE anchor for the ARCHITECTURE cluster -->
+  <div id="arch-def" class="step slide md" data-x="1180" data-y="200">
+
+# Architecture - Definition
+> The fundamental concepts or properties of a system in its environment embodied in its elements, relationships, and in the principles of its design and evolution
+> (ISO/IEC/IEEE 42010:2011)
+
+> The structure of components, their interrelationships, and the principles and guidelines governing their design and evolution over time
+> (TOGAF Standard 2018)
+
+> The important stuff (whatever that is)
+> (Martin Fowler)
+  </div>
+
+  <div class="step slide md" data-aim="arch-def" data-offset-x="1100">
+
+# Architecture Focus
+- Predictability
+- Wholistic Optimization
+  </div>
+
+  <div class="step slide pros md" data-aim="arch-def" data-offset-y="-700">
+
+# Architecture pros
+- There's always an architecture, modeling makes it explicit
+- Most valuable documentation if done well
+- Allows reasoning in broader scopes
+- Allows long-term predictions/reasoning/planning
+  </div>
+
+  <div class="step slide cons md" data-aim="arch-def" data-offset-y="700">
+
+# Architecture cons
+- In terms of Lean, architecture is actually "waste"
+- Unhelpful or even damaging if not updated
+- "Ivory tower" architecture often far from reality
+- Often found in rigid company structures and misused to control people
+  </div>
+
+  <!-- ABSOLUTE: the "Agile ❤️ Architecture" reveal, zoomed out -->
+  <div class="step slide appears" data-x="0" data-y="0" data-scale="5" data-z="2001">
+    <div style="position:absolute;display:flex;height:100%;width:100%;justify-content:center;align-items:center;">
+      <div class="agile-architecture">
+        <h2 style="position:absolute;top:-20px;left:38%">Agile</h2>
+        <img src="img/agile-architecture.svg" width="60" height="60" style="position:absolute;top:80px;left:40%"/>&nbsp;
+        <h2 style="position:absolute;top:105px;left:32%">Architecture</h2>
+      </div>
+      <h2>Agile<img src="img/scrum.svg" width="60" height="60"/>&nbsp;
+      <span style="display:inline-block;vertical-align:middle">
+      <img src="img/sparkle-hearts.gif" width="210" height="210"/><br/>
+      </span>&nbsp;
+      <img src="img/architecture.svg" width="60" height="60"/>&nbsp;Architecture
+      </h2>
+    </div>
+  </div>
+
+  <!-- ================= AGILE ARCHITECTURE cluster (centre) ================= -->
+  <!-- ABSOLUTE anchor for the centre cluster -->
+  <div id="agile-architecture" class="step slide md" data-x="0" data-y="200">
+
+# Agile Architecture
+- Combination of intentional and emergent architecture
+- Borrows concepts from many successful approaches (Intentional Architecture, Agile, Lean, Value Engineering)
+- Huge emphasis on the organization as a Complex Adaptive System
+  </div>
+
+  <!-- axioms stack upward from the centre anchor -->
+  <div class="step slide transparent md dense" data-aim="agile-architecture" data-offset-y="-2000" data-z="-1000">
+
+# Agile Architecture Axioms 1
+- Customer experience
+  - [Axiom 1. Customer Experience Focus](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_1_customer_experience_focus)
+  - [Axiom 2. Outside-In Thinking](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_2_outside_in_thinking)
+  - [Axiom 4. Touchpoint Orchestration](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_4_touchpoint_orchestration)
+- Organization structure
+  - [Axiom 5. Value Stream Alignment](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_5_value_stream_alignment)
+  - [Axiom 6. Autonomous Cross-Functional Teams](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_6_autonomous_cross_functional_teams)
+  - [Axiom 7. Authority, Responsibility, and Accountability Distribution](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_7_authority_responsibility_and_accountability_distribution)
+  - [Axiom 11. Partitioning Over Layering](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_11_partitioning_over_layering)
+  - [Axiom 12. Organization Mirroring Architecture](https://pubs.opengroup.org/architecture/o-aa-standard-single/#inverse-conway)
+  - [Axiom 13. Organizational Leveling](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_13_organizational_leveling)
+  - [Axiom 15. Project to Product Shift](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_15_project_to_product_shift)
+  </div>
+
+  <div class="step slide transparent md dense" data-aim="agile-architecture" data-offset-y="-1100" data-z="-1000">
+
+# Agile Architecture Axioms 2
+- Software structure
+  - [Axiom 8. Loosely-Coupled Systems](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_8_loosely_coupled_systems)
+  - [Axiom 9. Modular Data Platform](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_9_modular_data_platform)
+  - [Axiom 10. Simple Common Operating Principles](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_10_simple_common_operating_principles)
+  - [Axiom 16. Secure by Design](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_16_secure_by_design)
+- Agility
+  - [Axiom 3. Rapid Feedback Loops](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_3_rapid_feedback_loops)
+  - [Axiom 14. Bias for Change](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_axiom_14_bias_for_change)
+  </div>
+
+  <!-- tools row hangs below the centre anchor; its detail cards hang off it -->
+  <div id="aa-tools" class="step slide transparent md" data-aim="agile-architecture" data-offset-y="700" data-z="-1000">
+
+# Agile Architecture Tools
+- Inverse Conway Maneuver
+- Set-Based Concurrent Engineering
+- Minimum Security Architecture
+- Architectural Decision Records
+  </div>
+
+  <div class="step slide transparent md" data-aim="aa-tools" data-offset-x="-1800" data-offset-y="900" data-z="-1000">
+
+# Inverse Conway Maneuver
+- Do value-stream mapping first
+- Segment teams along individual value streams
+- Give teams authority, responsibility and accountability
+- Allows each part of the system to evolve as autonomously as possible
+  </div>
+
+  <div class="step slide transparent md" data-aim="aa-tools" data-offset-x="-600" data-offset-y="900" data-z="-1000">
+
+# Set-Based Concurrent Engineering
+- Simultaneously explore multiple solutions for every sub-system
+- Use rapid, low-cost analysis and tests
+- Eliminate weak solutions
+- Converge on a solution
+  </div>
+
+  <div class="step slide transparent md" data-aim="aa-tools" data-offset-x="600" data-offset-y="900" data-z="-1000">
+
+# Minimum Security Architecture
+- Start building and evolve your security architecture with the software
+- Integrate with and stay in sync with DevOps
+- Roll out changes to all teams and products
+- Guide developers toward a secure Minimum Viable Product and set architectural direction
+  </div>
+
+  <div id="adr" class="step slide transparent md" data-aim="aa-tools" data-offset-x="1800" data-offset-y="900" data-z="-1000">
+
+# Architectural Decision Records
+- Decide if something is a [architecturally significant decision](https://pubs.opengroup.org/architecture/o-aa-standard-single/#architecture-decisions)
+- Document significant decisions in a [standardized format](https://pubs.opengroup.org/architecture/o-aa-standard-single/#_architecture_decision_record)
+  </div>
+
+  <!-- sits at the exact spot of #adr, but deeper (data-z). offset 0 keeps it in
+       relative mode (scale 1) rather than auto-framing the ADR box. -->
+  <div class="step slide transparent autoheight md" data-aim="adr" data-offset-x="0" data-offset-y="0" data-z="-2000">
+
+# ADR Title
+
+| What | Question |
+|:--- |:--- |
+| Status | What is the status: proposed, accepted, rejected, deprecated, superseded, etc.? |
+| Context | What is the issue that is motivating this decision or change? |
+| Decision | What is the change that is being proposed and/or being executed? |
+| Decision scope | Which segments of the enterprise and its software systems are impacted? |
+| Decision type | Is the decision easily reversible or not, and why? |
+| Consequences | What becomes easier or more difficult to do because of this change? |
+  </div>
+
+  <div class="step slide pros md" data-aim="agile-architecture" data-offset-y="-700">
+
+# Agile Architecture pros
+- Focus on organization structure makes desired effects come about naturally
+- Combination of best methods from other frameworks
+- Proper authority/accountability cut empowers and motivates people
+- Allows shifting between long-term planning and short-term work
+  </div>
+
+  <div class="step slide cons md" data-aim="agile-architecture" data-offset-y="700">
+
+# Agile Architecture cons
+- Time will tell
+  </div>
+
+</div>
+
+<div class="hint">SPACE / → next · ← back · ESC overview</div>
+
+<!-- Styles live here (not <head>) so the slide Markdown is the first thing you
+     see when editing; the measuring script below needs this CSS already parsed. -->
+<style>
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    min-height:100vh;
+    background-image:linear-gradient(to bottom right, black, white);
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- impress base ---- */
+  .fallback{display:none}
+  .impress-not-supported .fallback{display:block;max-width:640px;margin:18vh auto;padding:2em;
+    background:#fff;border-radius:12px;text-align:center}
+
+  .step{
+    position:relative;
+    width:900px;height:600px;
+    padding:40px 60px;
+    font-size:30px;
+    background:white;
+    text-shadow:5px 5px 12px rgba(0,0,0,0.2);
+    border-radius:60px;
+    opacity:0;                 /* hidden unless active: no ghosting, no shine-through */
+    transition:opacity .8s ease;
+  }
+  .step.autoheight{height:auto}
+  /* Only the active step is visible. This deck has no persistent background layer,
+     so every non-active slide (incl. the big scale-5 title/transition steps) stays
+     fully transparent instead of impress's default faint ghosting. */
+  .step.active{opacity:1}
+
+  /* ---- titles ---- */
+  .slide h1,
+  .slide h2{
+    font-family:'Helvetica Neue', Helvetica, sans-serif;
+    font-weight:100;
+    font-size:48px;
+    text-align:center;
+    text-shadow:10px 10px 24px rgba(0,0,0,0.5);
+    margin:.2em 0 .4em;
+  }
+  .slide.manifesto{background-image:url(https://agilemanifesto.org/background.jpg);background-size:cover}
+
+  /* ---- body text ---- */
+  .slide p,
+  .slide li{font-weight:bold;letter-spacing:-.03em}
+  .slide li{margin:1.0em 0}
+  .slide li li{font-size:80%}
+
+  .slide > ul{list-style:none;padding-left:0}
+  .slide ol{margin-left:2em}
+  .slide > ul ul{margin-left:2em;list-style:none}
+
+  .slide > ul > li:before{content:'\2714';color:#a0c12c;padding-right:.5em}
+  .slide.pros > ul > li:before{content:'\2295';color:#a0c12c;padding-right:.5em}
+  .slide.cons > ul > li:before{content:'\2296';color:red;padding-right:.5em}
+  .slide li li:before{content:'\279C';color:#41a9ff;padding-right:.2em}
+
+  a{color:#41a9ff;text-decoration:underline}
+
+  /* dense: for content-heavy slides (many bullets / nested axiom links) so the
+     text stays inside the fixed 600px box instead of overflowing or, when
+     autoheight, growing past the viewport. */
+  .slide.dense h1{font-size:34px;margin:.15em 0 .35em}
+  .slide.dense li{font-size:21px;margin:.35em 0}
+  .slide.dense li li{font-size:19px;margin:.2em 0}
+  .slide.dense > ul ul{margin-left:1.4em}
+
+  code{font-family:'Courier New', Courier, monospace}
+
+  blockquote{
+    font:24px/30px italic Times, serif;
+    padding:8px 8px 8px 31px;margin:5px;
+    background-color:#faebbc;
+    border-top:1px solid #e1cc89;border-bottom:1px solid #e1cc89;
+    background-image:url(img/openquote1.gif);
+    background-position:top left;background-repeat:no-repeat;
+  }
+  blockquote p{
+    display:block;margin:0;
+    background-image:url(img/closequote1.gif);
+    background-repeat:no-repeat;background-position:bottom right;
+  }
+
+  table{border-collapse:collapse}
+  td,th{vertical-align:top;padding:4px;font-size:22px;text-align:left}
+
+  .hint{position:fixed;bottom:14px;right:18px;font-size:12px;color:#e2e8f0;
+    text-shadow:0 1px 2px rgba(0,0,0,.6);z-index:5}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js"></script>
+<script>
+  const FW = 900, FH = 600;               // matches #impress data-width / data-height
+
+  function dedent(s){
+    let lines = s.replace(/\r/g,"").split("\n");
+    while(lines.length && lines[0].trim()==="") lines.shift();
+    while(lines.length && lines[lines.length-1].trim()==="") lines.pop();
+    const widths = lines.filter(l=>l.trim()).map(l=>l.match(/^[ \t]*/)[0].length);
+    const min = widths.length ? Math.min(...widths) : 0;
+    return lines.map(l=>l.slice(min)).join("\n");
+  }
+
+  // Resolve an aim token to a DOM element by id.
+  function aimTarget(token){ return document.getElementById(token.trim()); }
+
+  // Canvas transform {x,y,scale} of a step. Absolute steps read their data-*;
+  // aim'd steps are computed and memoised. aim may chain (a step aims at another
+  // aim'd step), so resolution recurses — the aim graph must be a DAG.
+  const stepXf = new Map();
+  function resolveStep(step){
+    if(stepXf.has(step)){
+      const v = stepXf.get(step);
+      if(v === "…") throw new Error(`aim: cyclic data-aim through ${step.id}`);
+      return v;
+    }
+    stepXf.set(step, "…");                             // cycle sentinel
+    let xf;
+    if(step.hasAttribute("data-aim"))  xf = aimXf(step);
+    else xf = {x:+step.dataset.x||0, y:+step.dataset.y||0, scale:+step.dataset.scale||1};
+    stepXf.set(step, xf);
+    return xf;
+  }
+
+  // Canvas-space bbox {cx,cy,w,h} of any element, mapped through its owning step:
+  // a child at css offset d from the step centre lands at d*scale canvas units.
+  function canvasRect(el){
+    const step = el.closest(".step"), S = resolveStep(step);
+    const sr = step.getBoundingClientRect(), er = el.getBoundingClientRect();
+    const scx = (sr.left+sr.right)/2, scy = (sr.top+sr.bottom)/2;
+    return {
+      cx: S.x + ((er.left+er.right)/2 - scx) * S.scale,
+      cy: S.y + ((er.top+er.bottom)/2 - scy) * S.scale,
+      w:  er.width  * S.scale,
+      h:  er.height * S.scale,
+    };
+  }
+
+  // Transform for a [data-aim] step. Two modes:
+  //  • RELATIVE (has data-offset-x/-y): sit at aim-centre + offset, scale = authored
+  //    data-scale or 1. Used to place a satellite slide next to its anchor.
+  //  • FRAMING (no offset): centre AND frame the union of targets — scale computed to
+  //    fit unless an explicit data-scale is authored. Used to zoom into an element.
+  function aimXf(z){
+    let L=1e9,T=1e9,R=-1e9,B=-1e9,ok=false;
+    z.dataset.aim.split(",").forEach(tok=>{
+      const el = aimTarget(tok); if(!el) return;
+      const c = canvasRect(el); ok=true;
+      L=Math.min(L,c.cx-c.w/2); T=Math.min(T,c.cy-c.h/2);
+      R=Math.max(R,c.cx+c.w/2); B=Math.max(B,c.cy+c.h/2);
+    });
+    if(!ok) throw new Error(`aim: no targets for ${z.id} (data-aim="${z.dataset.aim}")`);
+    const cx=(L+R)/2, cy=(T+B)/2;
+
+    const hasOffset = z.hasAttribute("data-offset-x") || z.hasAttribute("data-offset-y");
+    if(hasOffset){
+      const ox = +z.dataset.offsetX || 0, oy = +z.dataset.offsetY || 0;
+      const scale = z.hasAttribute("data-scale") ? parseFloat(z.dataset.scale) : 1;
+      return {x:Math.round(cx+ox), y:Math.round(cy+oy), scale};
+    }
+
+    const w=R-L, h=B-T, pad=parseFloat(z.dataset.pad || "1.25");
+    const scale = z.hasAttribute("data-scale")
+      ? parseFloat(z.dataset.scale)
+      : Math.max(0.3, w*pad/FW, h*pad/FH);
+    return {x:Math.round(cx), y:Math.round(cy), scale};
+  }
+
+  (function(){
+    // Render Markdown in every .md step before measuring, so layout settles first.
+    // Read textContent (not innerHTML): the HTML serializer escapes `>` to `&gt;`,
+    // which would break Markdown blockquotes. These steps are pure Markdown.
+    document.querySelectorAll(".md").forEach(el=>{ el.innerHTML = marked.parse(dedent(el.textContent)); });
+    // External links open in a new tab.
+    document.querySelectorAll('a[href^="http"]').forEach(a=>{ a.target = "_blank"; a.rel = "noopener"; });
+
+    // Resolve absolute anchors + relative/framing aims into concrete data-x/y/scale.
+    // data-z (depth) is authored directly and left untouched.
+    document.querySelectorAll("[data-aim]").forEach(z=>{
+      const xf = resolveStep(z);
+      z.dataset.x = Math.round(xf.x);
+      z.dataset.y = Math.round(xf.y);
+      z.dataset.scale = xf.scale.toFixed(3);
+    });
+
+    impress().init();
+  })();
+</script>
+</body>
+</html>
